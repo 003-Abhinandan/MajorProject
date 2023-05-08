@@ -1,5 +1,5 @@
-#include<SoftwareSerial.h>
-SoftwareSerial mySerial(3,2);
+#include<SoftwareSerial.h>    // include directive for the SoftwareSerial library, which provides a way to communicate with serial devices using software instead of hardware serial ports.
+SoftwareSerial mySerial(3,2);  // declares a new SoftwareSerial object called mySerial with the RX pin connected to pin 3 and the TX pin connected to pin 2 on the Arduino board.
 
 int led1=4;
 int led2=5;
@@ -19,7 +19,7 @@ int val3=0;
 int val4=0;
 int val5=0;
 
-void setup(){
+void setup(){             // setup function which runs only once when the Arduino is powered on or reset.It initializes the pin modes for the LED and buzzer outputs, and the PIR sensor inputs. It also initializes the serial communication with a baud rate of 9600.
  pinMode(led1,OUTPUT);
  pinMode(led2,OUTPUT);
  pinMode(led3,OUTPUT);
@@ -40,7 +40,7 @@ Serial.begin(9600);
 void message(){
    
 }
-
+// This function is used to update the serial communication between the Arduino board and the SIM card module.
 void updateSerial(){
    delay(500);
    while(Serial.available())
@@ -171,7 +171,7 @@ void up(){
         digitalWrite(buzzer,LOW);
     }
 }
-
+//This is the main loop function that runs continuously after the setup function is executed. It calls the north(), east(), south(), west(), and up() functions in sequence to detect motion in the corresponding zones.
 void loop(){
     north();
     east();
